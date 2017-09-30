@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script>
+  <meta charset="utf-8">
+</head>
+<body>
+  <div id="list">
+    <ul>
+      <li v-for="name in names " v-text="name"></li>
+    </ul>
+    <!-- <li v-for="name in names">{{name}}</li> -->
+    <input type="text" v-model="newName">
+    <!--<button v-on:click="addName">Add Name</button-->
+    <button @click="addName">Add Name</button
+  </div>
+</body>
+<script>
+new Vue({
+	el: "#list",
+	data: {
+    newName: '',
+    names: ['Pedro', 'Andreia', 'Fábio','Elza','Lazide']
+	},
+  methods: {
+    addName: function() {
+      this.names.push(this.newName);
+      this.newName = '';
+    }
+  }
+});
+</script>
+</html>

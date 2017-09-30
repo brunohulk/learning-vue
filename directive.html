@@ -1,0 +1,19 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<!-- <a v-bind:href="link">Teste</a> -->
+		<a :href="link">Teste</a>
+	</div>
+</body>
+<script>
+new Vue({
+	el: "#app",
+	data: {
+		link:"http://brunoborges.info"
+	}
+});
+</script>
+</html>

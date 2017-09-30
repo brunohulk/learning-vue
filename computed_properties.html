@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script>
+  <meta charset="utf-8">
+</head>
+<body>
+  <div id="list">
+    Completed tasks
+    <ul>
+      <li v-for="task in tasks" v-if="task.completed" v-text="task.description"></li>
+    </ul>
+    Incompleted tasks
+    <ul>
+      <li v-for="task in incompletedTasks" v-text="task.description"></li>
+    </ul>
+  </div>
+</body>
+<script>
+new Vue({
+	el: "#list",
+	data: {
+      tasks: [
+        {description: "Aprender Vue", completed: true},
+        {description: "Ler Word Power", completed: false},
+        {description: "Ler Romanovs", completed: false},
+        {description: "Ler GO", completed: true}
+      ]
+	},
+  computed: {
+    incompletedTasks: function() {
+      //return this.tasks.filter(task => task.completed);
+      return this.tasks.filter(function(task) {
+        return ! task.completed;
+      });
+    }
+  }
+});
+</script>
+</html>
